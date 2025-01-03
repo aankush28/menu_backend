@@ -42,19 +42,17 @@ export class MenuItemService {
     return {
       children: {
         include: {
-          parent: {
-            select: {
-              name: true, // Select only the name of the parent
-            },
-          },
           children: {
             include: {
-              parent: {
-                select: {
-                  name: true, // Select the parent name for grand-children
+              children: {
+                include: {
+                  children: {
+                    include: {
+                      children: true,
+                    },
+                  },
                 },
               },
-              children: true,
             },
           },
         },
